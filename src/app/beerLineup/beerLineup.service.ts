@@ -6,6 +6,7 @@ import {Http, Response, Headers} from '@angular/http';
 import {IBeer} from '../beer'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {environment} from '../../environments/environment';
 
 //CRUD Service for the Beer Lineup of a brewery
 @Injectable()
@@ -15,7 +16,7 @@ export class BeerLineupService {
   private headers: Headers;
 
   constructor(private http: Http) {
-    this.lineupUrl = '/api/lineup' // Your API url
+    this.lineupUrl = environment.lineupUrl; // Your API url
     this.headers = new Headers({'Content-Type': 'application/json'});
   }
 

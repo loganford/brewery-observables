@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {BeerLineupComponent} from "./beerLineup/beerLineup.component";
 import {BeerLineupService} from "./beerLineup/beerLineup.service";
+import {MdCardModule} from '@angular/material';
 
 
 const appComponents = [
@@ -13,22 +14,28 @@ const appComponents = [
   BeerLineupComponent
 ];
 
+const materialModules = [
+  MdCardModule
+];
+
 const appServices = [
   BeerLineupService,
-
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    appComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    materialModules
   ],
-  providers: [],
+  providers: [
+    appServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
